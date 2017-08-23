@@ -49,6 +49,9 @@ class SampleDevelopmentReport(models.AbstractModel):
         form = record_wizard.form
         to = record_wizard.to
         report_name = record_wizard.name.name
+        print "------------------------------"
+        print report_name
+        print "------------------------------"
 
         records = self.env['ecube.report.structure'].search([('description','=',state),('name','=',report_name)])
         sequenced = []
@@ -60,7 +63,6 @@ class SampleDevelopmentReport(models.AbstractModel):
             for y in records.report_link:
                 if x == y.sequence:
                     iterations.append(y)
-
         report_heads = []
         divisions = []
         def genrate_values():
